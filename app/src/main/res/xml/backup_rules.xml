@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Same exclusion as data_extraction_rules.xml, in the legacy format required
+  for devices below API 31 (Android 12), which don't understand
+  data_extraction_rules.xml and fall back to this file instead.
+-->
+<full-backup-content>
+    <exclude domain="database" path="divar_smart_search.db" />
+    <exclude domain="database" path="divar_smart_search.db-wal" />
+    <exclude domain="database" path="divar_smart_search.db-shm" />
+</full-backup-content>

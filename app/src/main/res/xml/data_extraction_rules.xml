@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Real gap found: android:allowBackup="true" with no exclusion rules meant
+  the entire Room database — including the person's own Anthropic API key,
+  stored as plain text in app_settings — was swept into Android's automatic
+  Google account backup. Saved searches/filters/history are still backed up
+  normally (so they survive a device change); only the database, where the
+  API key lives, is excluded here. See backup_rules.xml for the pre-API 31
+  equivalent of this same exclusion.
+-->
+<data-extraction-rules>
+    <cloud-backup>
+        <exclude domain="database" path="divar_smart_search.db" />
+        <exclude domain="database" path="divar_smart_search.db-wal" />
+        <exclude domain="database" path="divar_smart_search.db-shm" />
+    </cloud-backup>
+    <device-transfer>
+        <exclude domain="database" path="divar_smart_search.db" />
+        <exclude domain="database" path="divar_smart_search.db-wal" />
+        <exclude domain="database" path="divar_smart_search.db-shm" />
+    </device-transfer>
+</data-extraction-rules>
